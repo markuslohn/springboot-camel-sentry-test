@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration scan="true" scanPeriod="30 seconds">
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="Logstash" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+    </encoder>
+  </appender>
+
+  <appender name="Sentry" class="io.sentry.logback.SentryAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+	</appender>
+
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="Logstash" />
+    <appender-ref ref="Sentry"/>
+  </root>
+
+</configuration>

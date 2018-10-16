@@ -1,0 +1,27 @@
+spec:
+  template:
+    spec:
+      containers:
+        -
+          volumeMounts:
+            - name: config-volume
+              mountPath: /deployments/config
+
+          env:                     
+            - name: SENTRY_DSN
+              valueFrom:
+                 configMapKeyRef:
+                   name: sentry.io
+                   key: SENTRY_DSN
+            - name: SENTRY_ENVIRONMENT
+              valueFrom:
+                 configMapKeyRef:
+                   name: sentry.io
+                   key: SENTRY_ENVIRONMENT                 
+            - name: SENTRY_RELEASE
+              value: ${version}
+                                     
+      volumes:
+        - name: config-volume
+          configMap:
+            name: ${project.artifactId}
