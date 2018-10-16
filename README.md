@@ -1,4 +1,4 @@
-# camel-spring-boot-sentry
+# springboot-camel-sentry-test
 
 This example demonstrates how to use Apache Camel and [sentry.io](https://sentry.io/welcome/) to track errors.
 
@@ -11,7 +11,7 @@ It uses the following integration methods provided by sentry:
 1. Clone this project from git repository:
 
    ```
-   git clone https://...
+   git clone https://github.com/markuslohn/springboot-camel-sentry-test.git
    ```
 
 2. Navigate to the root folder of the cloned git repository and execute:
@@ -46,14 +46,14 @@ It uses the following integration methods provided by sentry:
    curl http://localhost:8080/camel/defaulthandler/test
    curl http://localhost:8080/camel/logginghandler/test
    ```
-   
-4. Produce an error with 
+
+4. Produce an error with
 
    ```
    curl http://localhost:8080/camel/defaulthandler/error
    curl http://localhost:8080/camel/logginghandler/error
    ```
-   
+
    Verify the created issue (FileNotFoundException) in sentry.io console.
 
 
@@ -93,12 +93,12 @@ It uses the following integration methods provided by sentry:
    curl http://camel-spring-boot-sentry-my-integrationservice-providers.192.168.99.100.nip.io/camel/defaulthandler/test
    curl http://camel-spring-boot-sentry-my-integrationservice-providers.192.168.99.100.nip.io/camel/logginghandler/test
    ```
-   
-6. Produce an error with 
+
+6. Produce an error with
 
    ```
    curl http://camel-spring-boot-sentry-my-integrationservice-providers.192.168.99.100.nip.io/camel/defaulthandler/error
    curl http://camel-spring-boot-sentry-my-integrationservice-providers.192.168.99.100.nip.io/camel/logginghandler/error
    ```
-   
+
    Verify the created issue (FileNotFoundException) in sentry.io console.
